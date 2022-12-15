@@ -1,5 +1,37 @@
 package com.masai.model;
 
-public class Customer {
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Entity
+@Service
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Customer extends User{
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer customerId;
+	
+	@Embedded
+	@NotNull(message="User details are mandatory")
+	private User user;
+	
+	
+
+	
+	
+	
 }
