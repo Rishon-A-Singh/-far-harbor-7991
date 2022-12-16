@@ -1,6 +1,8 @@
 package com.masai.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -38,16 +40,17 @@ public class Driver extends User{
 	@NotBlank(message = "License Number be blank!")
 	private String licenseNo;
 	
-	@Pattern(regexp = "[1]{1}[1-5]{5}", message = "Rate your experience within 1-5")
+	@Pattern(regexp = "[1]{1-5}", message = "Rate your experience within 1-5")
 	private Float rating;
 	
 	@NotNull(message = "User data is mandatory")
 	@Embedded
 	private User user;
 	
-//	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
+	@ElementCollection(fetch = FetchType.EAGER)
 //	private Set<Cab> cab = new HashSet<>();
-
+	private Cab cab;
 
 }
 

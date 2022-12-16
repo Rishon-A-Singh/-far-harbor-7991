@@ -68,4 +68,18 @@ public class GlobalExceptionHandle {
 		return new ResponseEntity<MyErrorInfo>(err, HttpStatus.BAD_REQUEST);
 		
 	}
+	
+	@ExceptionHandler(CabException.class)
+	public ResponseEntity<MyErrorInfo> myAnyExpHandler(CabException ie,WebRequest req){
+		
+		
+		MyErrorInfo err = new MyErrorInfo();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(ie.getMessage());
+		err.setDetails(req.getDescription(false));
+		
+		
+		return new ResponseEntity<MyErrorInfo>(err, HttpStatus.BAD_REQUEST);
+		
+	}
 }
