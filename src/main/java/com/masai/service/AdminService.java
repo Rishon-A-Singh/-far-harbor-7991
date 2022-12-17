@@ -1,16 +1,12 @@
 package com.masai.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
-
-import com.masai.model.AdminDTO;
+import com.trippy.exception.TripBookingException;
+import com.trippy.models.TripBooking;
 import com.masai.exception.AdminException;
-import com.masai.exception.LoginException;
 import com.masai.model.Admin;
-//import com.masai.model.CompletedTrips;
-//import com.masai.model.Customer;
-//import com.masai.model.Driver;
-//
+
 public interface AdminService {
 
 	public Admin adminRegister(Admin admin) throws AdminException;
@@ -19,12 +15,14 @@ public interface AdminService {
 
 	public Admin deleteAdmin(Integer AdminId) throws AdminException;
 	
-//	public List<CompletedTrips> getTripsByCustomerId(Integer customerId, String key);
-//	
-//	public List<CompletedTrips> getAllTrips(String key);
-//	
-//	public List<Driver> getListOfDrivers(String key);
-//	
-//	public List<Customer> getListOfCustomers(String key);
+	public List<TripBooking> getAllTripBooking(Integer customerId) throws TripBookingException;
+	
+	public List<TripBooking> getTripCabWise() throws TripBookingException;
+	
+	public List<TripBooking> getTripCustomerWise() throws TripBookingException;
+	
+	public List<TripBooking> getTripDateWise() throws TripBookingException;
+	
+	public List<TripBooking> getAllTripForDays(Integer customerId, LocalDateTime fromDate, LocalDateTime toDate) throws TripBookingException;
 	
 }
