@@ -26,7 +26,6 @@ public class CustomerServiceImpl implements CustomerService {
 		if(addedCustomer==null) {
 			throw new CustomerException("Enter valid customer informations.........!");
 		}
-		
 		return addedCustomer;
 	}
 
@@ -43,6 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return deletedCustomer;
 	}
 
+	
 	@Override
 	public Customer updateCustomer(Customer customer,String key) throws CustomerException {
 		CurrentUserSession loggedInUser= login.findByUuid(key);
@@ -61,6 +61,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	}
 
+	
 	@Override
 	public List<Customer> viewCustomer() throws CustomerException {
 		
@@ -85,6 +86,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return getCustomer;
 	}
 
+	
 	@Override
 	public Customer validateCustomer(String userName, String password) throws CustomerException {
 		
