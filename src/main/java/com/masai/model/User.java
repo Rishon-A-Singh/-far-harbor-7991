@@ -1,12 +1,12 @@
 package com.masai.model;
 
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
-import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Service
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class User {
 
 	@NotNull(message = "Name cannot be null!")
@@ -24,7 +24,7 @@ public class User {
 	
 	@NotNull(message="Password cannot be null!")
 	@NotBlank(message= "Password cannot be blank!")
-	@Pattern(regexp = "[A-Za-z0-9!@#$%^&*_]{8,15}", message = "Password must be 8-15 characters in length and can include alphanumerics and special characters")
+	@Pattern(regexp = "[A-Za-z0-9!@#$%^&*_]{8,15}", message = "Password must be O8-15 characters in length and can include alphanumerics and special characters")
 	private String password;
 	
 	private String address;

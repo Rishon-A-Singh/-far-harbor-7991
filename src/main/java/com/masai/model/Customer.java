@@ -5,33 +5,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.stereotype.Service;
+import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@Entity
-@Service
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class Customer extends User{
-
+@NoArgsConstructor
+@Entity
+public class Customer{
+	
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@SequenceGenerator(name="customer_generator", sequenceName = "customer_seq", allocationSize=50)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_generator")
 	private Integer customerId;
 	
 	@Embedded
-	@NotNull(message="User details are mandatory")
 	private User user;
 	
-	
 
-	
 	
 	
 }

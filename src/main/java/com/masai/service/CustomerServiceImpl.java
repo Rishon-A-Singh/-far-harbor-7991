@@ -1,6 +1,7 @@
 package com.masai.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,41 +18,75 @@ public class CustomerServiceImpl implements CustomerService{
 	private CustomerDao userDao;
 	
 	@Override
-	public Customer createUser(Customer customer) throws CustomerException {
-		Customer c = new Customer();
-	
-        Customer existingUser= userDao.findByMobileNumber(customer.);
+	public Customer createUser(Customer cus) throws CustomerException {
 		
-		if(existingUser != null) 
-			throw new CustomerException("User already registered with this Mobile number!");
+		Optional<Customer> existing = userDao.findByUserMobile(cus.getUser().getMobile());
+
+		if (existing.isPresent()) {
+
+			System.out.println("Customer is already present");
+			throw new CustomerException("A Customer already exist with this mobile number in the Database");
+		}
+
+		return userDao.save(cus);
+
+		
+	}
+
+	@Override
+	public Customer updateUser(Customer customer) throws CustomerException {
+		
+		Optional<Customer> opt = userDao.findById(customer.getCustomerId());
+		
+		if(opt.isPresent()) {
 			
+			opt.get().setUser(customer.getUser());
+			
+			userDao.save(opt.get());
+		}
+		else {
+			throw new CustomerException("Customer is not updated");
+		}
+		return opt.get();
+	}
+
+	@Override
+	public Customer deleteUser(Integer customerId) throws CustomerException {
 		
-		return userDao.save(c);
+         Optional<Customer> opt = userDao.findById(customerId);
+		
+		if(opt.isPresent()) {
+			
+			userDao.delete(opt.get());
+		}
+		else {
+			throw new CustomerException("Customer is not updated");
+		}
+		return opt.get();
+		
+	}
+
+	@Override
+	public List<Customer> viewUsers() throws CustomerException {
 	
-	}
-
-	@Override
-	public Customer updateUser(Customer customer, String key) throws CustomerException {
+		List<Customer> list = userDao.findAll();
 		
-		return null;
+		if(list.size()==0) {
+			throw new CustomerException("users does not find");
+		}
+		return list;
 	}
 
 	@Override
-	public Customer deleteUser(Integer customerId, String key) throws CustomerException {
+	public Customer viewUserById(Integer customerId) throws CustomerException {
 		
-		return null;
-	}
-
-	@Override
-	public List<Customer> viewUsers(String key) throws CustomerException {
-	
-		return null;
-	}
-
-	@Override
-	public Customer viewUserById(Integer customerId, String key) throws CustomerException {
+         Optional<Customer> list = userDao.findById(customerId);
 		
-		return null;
+		if(list.isPresent()==false) {
+			throw new CustomerException("users does not find");
+		}
+		return list.get();
+		
 	}
 
 	
