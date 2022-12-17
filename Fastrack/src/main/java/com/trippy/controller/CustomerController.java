@@ -26,6 +26,7 @@ public class CustomerController{
 	@Autowired
 	private CustomerService custServe;
 
+	
 	@PostMapping("/customers")
 	public ResponseEntity<Customer> registerCustomer(@RequestBody Customer customer) throws CustomerException{
 		
@@ -34,7 +35,6 @@ public class CustomerController{
 		
 		return new ResponseEntity<Customer>(addedCustomer,HttpStatus.CREATED);
 	}
-	
 	
 	@PutMapping("/customers")
 	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer,@RequestParam(required = false) String key) throws CustomerException{
@@ -53,8 +53,7 @@ public class CustomerController{
 	}
 	
 	
-
-	@GetMapping("/customers")
+    @GetMapping("/customers")
 	public ResponseEntity<List<Customer>> getCustomers() throws CustomerException{
 		
 		List<Customer> list = custServe.viewCustomer();

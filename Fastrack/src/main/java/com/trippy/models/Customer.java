@@ -29,7 +29,6 @@ public class Customer{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer customerId;
 	
-	
 	@NotNull(message = "Name cannot be null!")
 	@NotBlank(message = "Name connot be blank!")
 	private String userName;
@@ -48,6 +47,7 @@ public class Customer{
 	
 	@Email
 	private String email;
+	
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private TripBooking trip;
