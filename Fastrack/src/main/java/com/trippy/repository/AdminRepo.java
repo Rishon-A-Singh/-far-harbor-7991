@@ -9,5 +9,5 @@ import com.trippy.models.Admin;
 public interface AdminRepo extends JpaRepository<Admin, Integer> {
 	
 	public Admin findByMobile(String mobile);
-
+	
 }
