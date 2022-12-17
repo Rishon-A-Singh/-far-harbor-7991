@@ -63,7 +63,6 @@ public class AdminController {
 	
 	
 	
-	
 	@GetMapping("/getTrips")
 	public ResponseEntity<List<TripBooking>> getAllTrips() throws AdminException{
 		

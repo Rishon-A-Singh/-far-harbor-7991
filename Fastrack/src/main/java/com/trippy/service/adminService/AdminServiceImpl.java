@@ -99,8 +99,7 @@ public class AdminServiceImpl implements AdminService {
 			throw new AdminException("List doesnt exists.....!");
 			}
 		
-		return list;
-		
+		return list;		
 		
 	}
 
