@@ -1,5 +1,7 @@
 package com.masai.service;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.masai.exception.AdminException;
 import com.masai.model.Admin;
 import com.masai.repository.AdminDao;
+import com.trippy.exception.TripBookingException;
+import com.trippy.models.TripBooking;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -48,6 +52,56 @@ public class AdminServiceImpl implements AdminService {
 			throw new AdminException("Delete Failed...");
 		}
 		return opt.get();
+	}
+
+	@Override
+	public List<TripBooking> getAllTripBooking(Integer customerId) throws TripBookingException {
+		// TODO Auto-generated method stub
+		List<TripBooking> tripBookings = adminDao.findByCustomerId(customerId);
+		if(tripBookings.size()==0) {
+			throw new TripBookingException("Trip not Found");
+		}
+		return tripBookings;
+	}
+
+	@Override
+	public List<TripBooking> getTripCabWise() throws TripBookingException {
+		// TODO Auto-generated method stub
+		List<TripBooking> tripBookings = adminDao.findCabWise();
+		if(tripBookings.size()==0) {
+			throw new TripBookingException("Trip not Found");
+		}
+		return tripBookings;
+	}
+
+	@Override
+	public List<TripBooking> getTripCustomerWise() throws TripBookingException {
+		// TODO Auto-generated method stub
+		List<TripBooking> tripBookings = adminDao.findByCustomerName();
+		if(tripBookings.size()==0) {
+			throw new TripBookingException("Trip not Found");
+		}
+		return tripBookings;
+	}
+
+	@Override
+	public List<TripBooking> getTripDateWise() throws TripBookingException {
+		List<TripBooking> tripBookings = adminDao.findByDate();
+		if(tripBookings.size()==0) {
+			throw new TripBookingException("Trip not Found");
+		}
+		return tripBookings;
+	}
+
+	@Override
+	public List<TripBooking> getAllTripForDays(Integer customerId, LocalDateTime fromDate, LocalDateTime toDate)
+			throws TripBookingException {
+		// TODO Auto-generated method stub
+		List<TripBooking> tripBookings = adminDao.findTripForDays(customerId, fromDate, toDate);
+		if(tripBookings.size()==0) {
+			throw new TripBookingException("Trip not Found");
+		}
+		return tripBookings;
 	}
 
 	
