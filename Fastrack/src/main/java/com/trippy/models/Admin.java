@@ -47,5 +47,4 @@ public class Admin{
 	@Email
 	private String email;
 
-
 }
