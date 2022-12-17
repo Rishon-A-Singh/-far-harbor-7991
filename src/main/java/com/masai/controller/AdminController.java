@@ -1,25 +1,17 @@
 package com.masai.controller;
 
-import java.util.List;
-
-import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.masai.model.AdminDTO;
 import com.masai.model.Admin;
-import com.masai.model.AdminSession;
 import com.masai.service.AdminService;
 
 @RestController
@@ -28,41 +20,21 @@ public class AdminController {
 
 	@Autowired
 	AdminService adminService;
-
-//	@PostMapping("/login")
-//	public ResponseEntity<AdminSession> loginAdmin(@RequestBody LoginDTO dto) {
-//		return new ResponseEntity<>(loginService.loginAdmin(dto), HttpStatus.ACCEPTED);
-//	}
-
+	
 	@PostMapping("/register")
-	public Admin registerAdmin(@RequestBody Admin admin) {
-		return adminService.adminRegister(admin);
-
+	public ResponseEntity<Admin> register(@RequestBody Admin admin){
+		return new ResponseEntity<Admin>(adminService.adminRegister(admin), HttpStatus.CREATED);
+		
 	}
-
-	@PatchMapping("/update/{username}")
-	public Admin updateAdminPassword(@RequestBody AdminDTO dto, @PathVariable("username") String username,
-			@RequestParam String key) {
-		return adminService.updatePassword(dto, username, key);
+	
+	@PutMapping("/update")
+	public ResponseEntity<Admin> update(@RequestBody Admin admin){
+		return new ResponseEntity<Admin>(adminService.update(admin), HttpStatus.CREATED);
 	}
-
-	@PutMapping("/update/{username}")
-	public Admin updateAdmin(@RequestBody Admin admin, @PathVariable("username") String username,
-			@RequestParam String key) {
-		return adminService.update(admin, username, key);
-	}
-
-	@DeleteMapping("/delete")
-	public String deleteAdmin(@RequestBody AdminDTO dto, @RequestParam String key) {
-		return adminService.deleteByUsername(dto, key);
-
-	}
-
-	@GetMapping("/logout")
-	public String logoutAdmin(@RequestParam String key) {
-
-		return adminService.logoutAdmin(key);
-
+	
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Admin> delete(@PathVariable("id") Integer adminId){
+		return new ResponseEntity<Admin>(adminService.deleteAdmin(adminId), HttpStatus.OK);
 	}
 
 }
