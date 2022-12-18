@@ -77,23 +77,23 @@
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
 ## Contributors
-👤 **Akash Kumar Mishra**
+👤 **Atul Singh Bhadouria**
 
-- GitHub: [@akash-github-25 ](https://github.com/akash-github-25)
+- GitHub: [@atulsinghmbbs](https://github.com/atulsinghmbbs)
 
-- LinkedIn: [@Akash Mishra](https://www.linkedin.com/in/akashmishra25/ )
+- LinkedIn: [@Atul Singh Bhadouria](https://www.linkedin.com/in/atul-singh-bhadouria-5a1a88108/)
 
-👤 **Brajesh Lovanshi**
+👤 **Sunni Kumar**
 
-- GitHub: [@br-lovanshi](https://github.com/br-lovanshi)
+- GitHub: [@Sunnyarya01](https://github.com/Sunnyarya01)
 
-- LinkedIn: [@Brajesh Lovanshi](https://www.linkedin.com/in/brajesh-lovanshi-2b274220a/)
+- LinkedIn: [@Sunni Kumar](https://www.linkedin.com/in/sunni-kumar/)
 
-👤 **Vishal Bhargava**
+👤 **Sudarshan CR**
 
-- GitHub: [@sadhakvishu ](https://github.com/sadhakvishu )
+- GitHub: [@Sudarshan098](https://github.com/Sudarshan098)
 
-- LinkedIn: [@Vishal Bhargava](https://www.linkedin.com/in/sadhakvishu/)
+- LinkedIn: [@Sudarshan CR](https://www.linkedin.com/in/sadhakvish/)
 
 
 👤 **Avatar Rishon Anvay Singh**
@@ -103,11 +103,6 @@
 - LinkedIn: [@Rishon A. Singh ](https://www.linkedin.com/in/rishon-a-singh/)
 
 
-👤 **Rahul Chandel**
-
-- GitHub: [@RahulChandel-Coder1 ](https://github.com/RahulChandel-Coder1 )
-
-- LinkedIn: [@Rahul Chandel](https://www.linkedin.com/in/rahul-chandel-16323619b/)
 
 
 
