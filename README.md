@@ -9,17 +9,17 @@
 
 
 
-<h1 align="center">Hello <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px" height="38"> there, fellow DEVELOPER'S</h1>
+<h1 align="center">Hello<img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px" height="38"> there, fellow DEVELOPER'S</h1>
 <h3 align="center">Teamwork makes the dream work! One team, one dream.</h3>
 
 <!-- https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.icegif.com%2Fteamwork-20%2F&psig=AOvVaw1V55uwZ46Z_ygkKyE9zEW5&ust=1668094635069000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKiExP62ofsCFQAAAAAdAAAAABAX -->
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## REST API for an Online Trip Management System
+## REST API for an Online Cab Booking System
 
-- We have developed this REST API for an Online Trip Management System. This API performs all the fundamental CRUD operations of any Trip Management Application platform with user validation at every step.
-- This project is developed by team of 5 Back-End Developers during project week in Masai School.
+- We have developed this REST API for an Online Cab Booking System. This API performs all the fundamental CRUD operations of any Trip Management Application platform with user validation at every step.
+- This project is developed by team of 4 Back-End Developers during project week in Masai School.
 
 ## Tech Stack
 
@@ -36,27 +36,22 @@
 ## Modules
 
 - Login, Logout Module
-- User Module
+- Customer Module
 - Admin Module
-- Booking Management Module
-- Feedback Module
-- Report Module
-- Trip Package Management Module
-- Route Mangement Module
+- Driver Module
+- Trip Booking Module
+- Cab Module
 
 ## Features
 
-- User and Admin authentication & validation with session uuid having.
+- Customer and Admin authentication & validation with session uuid having.
 - Admin Features:
   - Administrator Role of the entire application
-  - Only registered admins with valid session token can add/update/delete Package,Hotel,Route or customer from main database.
-  - Admin can access the details of different Routes, Bus, Packages, TicketDetails,Feedback,Customer,Reports,etc.
-- User Features:
-  - A user can register himself or herself on the platform.
-  - He/She can check the Packages and Hotels availabilty.
-  - If Trip Package is available, can book the trip package by providing payment details.
-  - After booking, he will get booking details for the whole Package inside this there will be all details regarding the ticket details ,total cost, etc.
-  - If the customer want can cancel the booking.
+  - Only registered admins with valid session token can add/update/delete view tripbooking list acording to Cab, Customer, Driver from main database.
+- Customer Features:
+  - A customer can register himself or herself on the platform.
+  - He/She can check the trip availity and book trip.
+  - If Trip is available, can book the trip by providing payment details.
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
